@@ -104,12 +104,12 @@ masters
 nodes
 etcd 
 [masters]
-master.example.lan 
+192.168.0.101 
 [etcd]
-master.example.lan 
+192.168.0.101 
 [nodes]
-master.example.lan openshift_node_group_name="node-config-master-infra"
-worker.example.lan openshift_node_group_name="node-config-compute" 
+192.168.0.101 openshift_node_group_name="node-config-master"
+192.168.0.102 openshift_node_group_name="node-config-infra" 
 [OSEv3:vars]
 openshift_additional_repos=[{'id': 'centos-paas', 'name': 'centos-paas', 'baseurl' :'https://buildlogs.centos.org/centos/7/paas/x86_64/openshift-origin311', 'gpgcheck' :'0', 'enabled' :'1'}] 
 ansible_ssh_user=root
@@ -133,8 +133,8 @@ openshift_uninstall_images=false
 openshift_metrics_install_metrics=false
 openshift_logging_install_logging=false 
 openshift_master_identity_providers=[{'name': 'htpasswd_auth', 'login': 'true', 'challenge': 'true', 'kind': 'HTPasswdPasswordIdentityProvider'}] 
-openshift_public_hostname=console.master.example.lan
-openshift_master_default_subdomain=apps.master.example.lan
+openshift_public_hostname=console.192.168.0.101
+openshift_master_default_subdomain=apps.192.168.0.101
 openshift_master_api_port=8443
 openshift_master_console_port=8443
 EOF
