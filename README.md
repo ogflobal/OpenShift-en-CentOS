@@ -24,6 +24,7 @@ Paso 1:
 
 >Master Virtual Machine.
 ```bash
+#!/bin/bash
 hostnamectl set-hostname "master"
 hostnamectl set-hostname "master.example.lan" --static
 MYIP=$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1)
@@ -47,6 +48,7 @@ yum -y --enablerepo=epel install https://releases.ansible.com/ansible/rpm/releas
 
 >Worker Virtual Machine.
 ```bash
+#!/bin/bash
 hostnamectl set-hostname "worker"
 hostnamectl set-hostname "worker.example.lan" --static
 MYIP=$(ip addr show $(ip route | awk '/default/ { print $5 }') | grep "inet" | head -n 1 | awk '/inet/ {print $2}' | cut -d'/' -f1)
