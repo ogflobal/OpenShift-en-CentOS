@@ -41,7 +41,7 @@ yum install -y  wget git zile nano net-tools docker-1.13.1 bind-utils iptables-s
 yum install -y  epel-release
 sed -i -e "s/^enabled=1/enabled=0/" /etc/yum.repos.d/epel.repo
 systemctl | grep "NetworkManager.*running" 
-if [ $? -eq 1 ]; then systemctl start NetworkManager systemctl enable NetworkManager; fi
+if [ $? -eq 1 ]; then systemctl start NetworkManager docker systemctl enable NetworkManager docker; fi
 yum -y --enablerepo=epel install pyOpenSSL
 yum -y --enablerepo=epel install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.5-1.el7.ans.noarch.rpm
 ```
