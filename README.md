@@ -6,9 +6,6 @@ Enlace para descargar CentOS 7 [aquí](https://archive.org/download/cent-os-7-dv
 
 
 ### VirtualBox
-![Virtual machines](https://user-images.githubusercontent.com/74718043/236634207-5de3d406-1455-42d8-b53c-3e2cbbdc515d.png)
-
-### Máquinas virtuales
 
 ```
 -------------------+-------------------     -------------------+-------------------
@@ -19,7 +16,11 @@ enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.
 +-------------------------------------+     +-------------------------------------+
 ```
 
-### Inicio rápido
+![Virtual machines](https://user-images.githubusercontent.com/74718043/236634207-5de3d406-1455-42d8-b53c-3e2cbbdc515d.png)
+
+### Ejecutar
+
+
 
 Paso 1: Master Virtual Machine.
 
