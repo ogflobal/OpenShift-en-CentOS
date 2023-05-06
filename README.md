@@ -20,7 +20,7 @@ enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.
 
 ### Ejecutar
 
-Paso 1:
+Paso 1: En Master Virtual Machine y en Worker Virtual Machine.
 
 >Master Virtual Machine "[Paso_1-Master_Virtual_Machine.sh](Paso_1-Master_Virtual_Machine.sh)".
 ```bash
@@ -82,7 +82,7 @@ yum -y --enablerepo=epel install pyOpenSSL
 yum -y --enablerepo=epel install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.5-1.el7.ans.noarch.rpm
 ```
 
-Paso 2:
+Paso 2: En Master Virtual Machine.
 
 >Master Virtual Machine "[Paso_2-Master_Virtual_Machine.sh](Paso_2-Master_Virtual_Machine.sh)".
 ```bash
