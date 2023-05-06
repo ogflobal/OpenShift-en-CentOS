@@ -11,12 +11,12 @@ Enlace para descargar CentOS 7 [aquí](https://archive.org/download/cent-os-7-dv
 -------------------+-------------------     -------------------+-------------------
 enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.102
 +------------------+------------------+     +------------------+------------------+
-|         [master.example.lan]        |     |         [master.example.lan]        |
+|         [master.example.lan]        |     |         [worker.example.lan]        |
 |        Master Virtual Machine       |     |        Worker Virtual Machine       |
+|    Conectado a: Adaptador puente    |     |    Conectado a: Adaptador puente    |
+|RAM 8192 MB · CPUs 2 · SATA 100.00 GB|     |RAM 8192 MB · CPUs 2 · SATA 100.00 GB|
 +-------------------------------------+     +-------------------------------------+
 ```
-
-![Virtual machines](https://user-images.githubusercontent.com/74718043/236634207-5de3d406-1455-42d8-b53c-3e2cbbdc515d.png)
 
 ### Ejecutar
 
