@@ -20,7 +20,7 @@ enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.
 
 ### Ejecutar
 
-**Paso 1:**
+Paso 1:
 
 >Master Virtual Machine.
 ```bash
