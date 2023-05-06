@@ -50,6 +50,7 @@ systemctl | grep "NetworkManager.*running"
 if [ $? -eq 1 ]; then systemctl start NetworkManager docker systemctl enable NetworkManager docker; fi
 yum -y --enablerepo=epel install pyOpenSSL
 yum -y --enablerepo=epel install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.5-1.el7.ans.noarch.rpm
+reboot
 ```
 
 >Worker Virtual Machine "[Paso_1-Worker_Virtual_Machine.sh](Paso_1-Worker_Virtual_Machine.sh)".
@@ -80,6 +81,7 @@ systemctl | grep "NetworkManager.*running"
 if [ $? -eq 1 ]; then systemctl start NetworkManager docker systemctl enable NetworkManager docker; fi
 yum -y --enablerepo=epel install pyOpenSSL
 yum -y --enablerepo=epel install https://releases.ansible.com/ansible/rpm/release/epel-7-x86_64/ansible-2.6.5-1.el7.ans.noarch.rpm
+reboot
 ```
 
 Paso 2: En Master Virtual Machine.
