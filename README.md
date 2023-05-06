@@ -1,5 +1,5 @@
 # OpenShift en CentOS
-Usaremos [origin](https://github.com/openshift/origin) v3.11.0, que es la implementación de código abierto de Red Hat y mencionar que el nombre del proyecto se cambia a [okd](https://github.com/okd-project/okd).
+Para el ejemplo usaremos [origin](https://github.com/openshift/origin) v3.11.0, que es la implementación de código abierto de Red Hat y mencionar que el nombre del proyecto se cambia a [okd](https://github.com/okd-project/okd).
 Enlace para descargar CentOS 7 [aquí](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso).
 
 
