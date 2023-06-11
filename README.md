@@ -121,6 +121,84 @@ $TTL 86400
 EOF
 ```
 ```bash
+systemctl enable --now named
+```
+`vi /etc/sysconfig/network-scripts/ifcfg-enp0s3`
+```bash
+...
+PEERDNS="no"
+...
+```
+`vi /etc/NetworkManager/NetworkManager.conf`
+```bash
+...
+[main]
+...
+dns=none
+...
+```
+`vi /etc/resolv.conf`
+```bash
+reboot
+```
+```bash
+...
+nameserver 192.168.0.100
+nameserver 190.113.220.18
+nameserver 190.113.220.51
+nameserver 190.113.220.54
+...
+```
+```bash
+dig tvm.example.lan.
+dig -x 192.168.0.100
+ping tvm
+ping tvm.example.lan
+ping www.example.lan
+ping 192.168.0.100
+```
+```bash
+yum install -y centos-release-openshift-origin
+yum install -y wget git net-tools bind-utils iptables-services bridge-utils bash-completion origin-clients 
+yum install -y docker
+```
+```bash
+sed -i '/OPTIONS=.*/c\OPTIONS="--selinux-enabled --insecure-registry 172.30.0.0/16"' /etc/sysconfig/docker
+```
+```bash
+systemctl enable docker
+systemctl start docker
+systemctl is-active docker
+```
+`vi /etc/containers/registries.conf`
+```bash
+...
+[registries.insecure]
+registries = ['172.30.0.0/16']
+...
+```
+```bash
+systemctl daemon-reload
+systemctl restart docker
+```
+```bash
+docker network inspect -f "{{range .IPAM.Config }}{{ .Subnet }}{{end}}" bridge
+```
+```bash
+firewall-cmd --permanent --new-zone dockerc
+firewall-cmd --permanent --zone dockerc --add-source 172.17.0.0/16
+firewall-cmd --permanent --zone dockerc --add-port 8443/tcp
+firewall-cmd --permanent --zone dockerc --add-port 53/udp
+firewall-cmd --permanent --zone dockerc --add-port 8053/udp
+firewall-cmd --reload
+```
+```bash
+oc cluster up --public-hostname=www.example.lan --routing-suffix=example.lan
+```
+```bash
+
+```
+```bash
 
 ```
 
