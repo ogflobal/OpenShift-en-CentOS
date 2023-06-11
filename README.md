@@ -23,24 +23,31 @@ enp0s3             |      192.168.0.100
 ```bash
 hostnamectl set-hostname tvm.example.lan
 ```
+
 ```bash
 cat > /etc/hosts << "EOF"
 127.0.0.1   localhost 
 ::1         localhost
 EOF
 ```
+
 ```bash
 yum check-update
 ```
+
 ```bash
 yum groupinstall -y "Server with GUI"
 systemctl set-default graphical
 ```
+
 ```bash
 yum -y install bind bind-utils
 ```
+
 ```bash
 vi /etc/named.conf
+```
+
 ```
 ...
 acl internal-network {
