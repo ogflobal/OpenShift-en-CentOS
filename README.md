@@ -20,6 +20,14 @@ enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.
 
 ### Ejecutar
 
+The workaround is to set `tvm.example.lan` to disable the checksum
+database for the vendoring update:
+
+```bash
+hostnamectl set-hostname tvm.example.lan
+```
+
+
 Paso 1: En Master Virtual Machine y en Worker Virtual Machine.
 
 >Master Virtual Machine "[Paso_1-Master_Virtual_Machine.sh](Paso_1-Master_Virtual_Machine.sh)".
