@@ -20,9 +20,6 @@ enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.
 
 ### Ejecutar
 
-Llamaremos a nuestro equipo Máquina Virtual de Prueba `tvm` en un dominio `example.lan` to disable the checksum
-database for the vendoring update:
-
 ```bash
 hostnamectl set-hostname tvm.example.lan
 ```
