@@ -34,8 +34,12 @@ EOF
 ```
 ```bash
 yum check-update
+```
+```bash
 yum groupinstall -y "Server with GUI"
 systemctl set-default graphical
+```
+```bash
 yum -y install bind bind-utils
 ```
 `vi /etc/named.conf`
@@ -63,8 +67,6 @@ zone "0.168.192.in-addr.arpa" IN {
         allow-update { none; };
 };
 ....
---------------------------------------------------------------------------------
-
 ```
 ```bash
 cat > /var/named/example.lan.db << "EOF"
