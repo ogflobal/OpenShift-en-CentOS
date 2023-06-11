@@ -146,10 +146,12 @@ nameserver 192.168.0.100
 ```bash
 dig tvm.example.lan.
 dig -x 192.168.0.100
+```
+```bash
 ping tvm
+ping 192.168.0.100
 ping tvm.example.lan
 ping www.example.lan
-ping 192.168.0.100
 ```
 ```bash
 yum install -y centos-release-openshift-origin
