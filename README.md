@@ -44,9 +44,9 @@ systemctl set-default graphical
 yum -y install bind bind-utils
 ```
 
-```bash
-vi /etc/named.conf
-```
+<details>
+<summary>vi /etc/named.conf</summary>
+<p>
 
 ```
 ...
@@ -73,6 +73,10 @@ zone "0.168.192.in-addr.arpa" IN {
 };
 ....
 ```
+
+</p>
+</details>
+
 ```bash
 cat > /var/named/example.lan.db << "EOF"
 $TTL 86400
