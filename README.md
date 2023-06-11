@@ -1,7 +1,7 @@
 # OpenShift Origin v3.11.0 Quickstart
 Para el ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), que es la implementación de código abierto de Red Hat conocida así hasta agosto de 2018. Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd), el cual ahora es considerado como un upstream.
 
->Descargue [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso).
+>Descarguemos [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso).
 
 
 
