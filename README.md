@@ -39,8 +39,9 @@ systemctl set-default graphical
 ```bash
 yum -y install bind bind-utils
 ```
-`vi /etc/named.conf`
 ```bash
+vi /etc/named.conf
+```
 ...
 acl internal-network {
         192.168.0.0/24;
