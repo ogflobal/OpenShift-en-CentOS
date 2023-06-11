@@ -141,9 +141,6 @@ reboot
 ```bash
 ...
 nameserver 192.168.0.100
-nameserver 190.113.220.18
-nameserver 190.113.220.51
-nameserver 190.113.220.54
 ...
 ```
 ```bash
