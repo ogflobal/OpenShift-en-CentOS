@@ -20,13 +20,107 @@ enp0s3             |      192.168.0.101     enp0s3             |      192.168.0.
 
 ### Ejecutar
 
-The workaround is to set `tvm.example.lan` to disable the checksum
+Llamaremos a nuestro equipo Máquina Virtual de Prueba `tvm` en un dominio `example.lan` to disable the checksum
 database for the vendoring update:
 
 ```bash
 hostnamectl set-hostname tvm.example.lan
 ```
+```bash
+cat > /etc/hosts << "EOF"
+127.0.0.1   localhost 
+::1         localhost
+EOF
+```
+```bash
+yum check-update
+yum groupinstall -y "Server with GUI"
+systemctl set-default graphical
+yum -y install bind bind-utils
+```
+`vi /etc/named.conf`
+```bash
+...
+acl internal-network {
+        192.168.0.0/24;
+};
+...
+listen-on port 53 { any; };
+listen-on-v6 port 53 { any; }
+...
+allow-query     { localhost; internal-network; };
+allow-transfer  { localhost; };
+...
+zone "example.lan" IN {
+        type master;
+        file "/var/named/example.lan.db";
+        allow-update { none; };
+};
 
+zone "0.168.192.in-addr.arpa" IN {
+        type master;
+        file "/var/named/0.168.192.in-addr.arpa.db";
+        allow-update { none; };
+};
+....
+--------------------------------------------------------------------------------
+
+```
+```bash
+cat > /var/named/example.lan.db << "EOF"
+$TTL 86400
+
+@       IN        SOA      tvm.example.lan.        root.example.lan. (
+        2023010101  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+
+;Name Server Information
+@       IN        NS       tvm.example.lan.
+
+;IP address of Name Server
+tvm     IN        A        192.168.0.100
+
+;Mail exchanger
+example.lan.      IN       MX        10        mail.example.lan.
+
+;A - Record HostName To IP Address
+www     IN        A        192.168.0.100
+mail    IN        A        192.168.0.100
+
+;CNAME record
+ftp     IN        CNAME    www.example.lan.
+EOF
+```
+```bash
+cat > /var/named/0.168.192.in-addr.arpa.db << "EOF"
+$TTL 86400
+
+@       IN        SOA      tvm.example.lan.        root.example.lan. (
+        2023010101  ;Serial
+        3600        ;Refresh
+        1800        ;Retry
+        604800      ;Expire
+        86400       ;Minimum TTL
+)
+
+;Name Server Information
+@       IN        NS       tvm.example.lan.
+
+;Reverse lookup for Name Server
+100     IN        PTR      tvm.example.lan.
+
+;PTR Record IP address to HostName
+100     IN        PTR      www.example.lan.
+100     IN        PTR      mail.example.lan.
+EOF
+```
+```bash
+
+```
 
 Paso 1: En Master Virtual Machine y en Worker Virtual Machine.
 
