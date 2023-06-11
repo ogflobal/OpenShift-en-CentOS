@@ -82,11 +82,11 @@ cat > /var/named/example.lan.db << "EOF"
 $TTL 86400
 
 @       IN        SOA      tvm.example.lan.        root.example.lan. (
-        2023010101  ;Serial
-        3600        ;Refresh
-        1800        ;Retry
-        604800      ;Expire
-        86400       ;Minimum TTL
+        2023010101         ;Serial
+        3600               ;Refresh
+        1800               ;Retry
+        604800             ;Expire
+        86400              ;Minimum TTL
 )
 
 ;Name Server Information
@@ -96,7 +96,7 @@ $TTL 86400
 tvm     IN        A        192.168.0.100
 
 ;Mail exchanger
-example.lan.      IN       MX        10        mail.example.lan.
+example.lan.      IN       MX                      10        mail.example.lan.
 
 ;A - Record HostName To IP Address
 www     IN        A        192.168.0.100
@@ -106,16 +106,17 @@ mail    IN        A        192.168.0.100
 ftp     IN        CNAME    www.example.lan.
 EOF
 ```
+
 ```bash
 cat > /var/named/0.168.192.in-addr.arpa.db << "EOF"
 $TTL 86400
 
 @       IN        SOA      tvm.example.lan.        root.example.lan. (
-        2023010101  ;Serial
-        3600        ;Refresh
-        1800        ;Retry
-        604800      ;Expire
-        86400       ;Minimum TTL
+        2023010101         ;Serial
+        3600               ;Refresh
+        1800               ;Retry
+        604800             ;Expire
+        86400              ;Minimum TTL
 )
 
 ;Name Server Information
@@ -129,32 +130,56 @@ $TTL 86400
 100     IN        PTR      mail.example.lan.
 EOF
 ```
+
 ```bash
 systemctl enable --now named
 ```
-`vi /etc/sysconfig/network-scripts/ifcfg-enp0s3`
-```bash
+
+<details>
+<summary>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</summary>
+<p>
+
+```
 ...
 PEERDNS="no"
 ...
 ```
-`vi /etc/NetworkManager/NetworkManager.conf`
-```bash
+
+</p>
+</details>
+
+<details>
+<summary>vi /etc/NetworkManager/NetworkManager.conf</summary>
+<p>
+
+```
 ...
 [main]
 ...
 dns=none
 ...
 ```
+
+</p>
+</details>
+
 ```bash
 reboot
 ```
-`vi /etc/resolv.conf`
-```bash
+
+<details>
+<summary>vi /etc/resolv.conf</summary>
+<p>
+
+```
 ...
 nameserver 192.168.0.100
 ...
 ```
+
+</p>
+</details>
+
 ```bash
 dig tvm.example.lan.
 dig -x 192.168.0.100
