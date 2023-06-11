@@ -18,7 +18,7 @@ enp0s3             |      192.168.0.100
 +-------------------------------------+
 ```
 
-### Ejecutar
+### Shell
 
 ```bash
 hostnamectl set-hostname tvm.example.lan
