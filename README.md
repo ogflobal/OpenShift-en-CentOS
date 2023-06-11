@@ -134,10 +134,10 @@ PEERDNS="no"
 dns=none
 ...
 ```
-`vi /etc/resolv.conf`
 ```bash
 reboot
 ```
+`vi /etc/resolv.conf`
 ```bash
 ...
 nameserver 192.168.0.100
@@ -191,6 +191,21 @@ firewall-cmd --reload
 ```bash
 oc cluster up --public-hostname=www.example.lan --routing-suffix=example.lan
 ```
+`oc cluster down`
+
+`vi ./openshift.local.clusterup/openshift-controller-manager/openshift-master.kubeconfig`
+```bash
+...
+server: https://www.example.lan:8443
+...
+```
+`vi .kube/config`
+```bash
+server: https://www.example.lan:8443
+```
+`oc cluster up --public-hostname=www.example.lan --routing-suffix=example.lan`
+
+`oc status`
 ```bash
 
 ```
