@@ -1,6 +1,8 @@
 # OpenShift Origin v3.11.0 local quickstart
 Para el ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), que es la implementación de código abierto de Red Hat conocida así hasta agosto de 2018. Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd), el cual ahora es considerado como un upstream. Descarguemos e instalemos [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) y empecemos.
 
+![Screenshot](https://github.com/ogflobal/OpenShift-Origin-v3.11.0-local-quickstart/assets/74718043/5b55a175-d72e-4819-9dec-dbd1ccb2c95e)
+
 ### VirtualBox
 
 ```
