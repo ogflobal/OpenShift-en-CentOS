@@ -12,132 +12,16 @@ Preparamos una máquina virtual similar como la que se muestra en imagen.
 Ejecutamos o editamos según corresponda.
 
 ```bash
-hostnamectl set-hostname tvm.example.lan
+hostnamectl set-hostname nombredeequipo.nombrededominio.nip.io
 ```
 
 ```bash
 cat > /etc/hosts << "EOF"
 127.0.0.1   localhost 
 ::1         localhost
+192.168.0.100   nombredeequipo.nombrededominio.nip.io
 EOF
 ```
-
-```bash
-yum check-update
-```
-
-```bash
-yum groupinstall -y "Server with GUI"
-systemctl set-default graphical
-```
-
-```bash
-yum -y install bind bind-utils
-```
-
-<details>
-<summary>vi /etc/named.conf</summary>
-<p>
-
-```
-...
-acl internal-network {
-        192.168.0.0/24;
-};
-...
-listen-on port 53 { any; };
-listen-on-v6 port 53 { any; }
-...
-allow-query     { localhost; internal-network; };
-allow-transfer  { localhost; };
-...
-zone "example.lan" IN {
-        type master;
-        file "/var/named/example.lan.db";
-        allow-update { none; };
-};
-
-zone "0.168.192.in-addr.arpa" IN {
-        type master;
-        file "/var/named/0.168.192.in-addr.arpa.db";
-        allow-update { none; };
-};
-....
-```
-
-</p>
-</details>
-
-```bash
-cat > /var/named/example.lan.db << "EOF"
-$TTL 86400
-
-@       IN        SOA      tvm.example.lan.        root.example.lan. (
-        2023010101         ;Serial
-        3600               ;Refresh
-        1800               ;Retry
-        604800             ;Expire
-        86400              ;Minimum TTL
-)
-
-;Name Server Information
-@       IN        NS       tvm.example.lan.
-
-;IP address of Name Server
-tvm     IN        A        192.168.0.100
-
-;Mail exchanger
-example.lan.      IN       MX                      10        mail.example.lan.
-
-;A - Record HostName To IP Address
-www     IN        A        192.168.0.100
-mail    IN        A        192.168.0.100
-
-;CNAME record
-ftp     IN        CNAME    www.example.lan.
-EOF
-```
-
-```bash
-cat > /var/named/0.168.192.in-addr.arpa.db << "EOF"
-$TTL 86400
-
-@       IN        SOA      tvm.example.lan.        root.example.lan. (
-        2023010101         ;Serial
-        3600               ;Refresh
-        1800               ;Retry
-        604800             ;Expire
-        86400              ;Minimum TTL
-)
-
-;Name Server Information
-@       IN        NS       tvm.example.lan.
-
-;Reverse lookup for Name Server
-100     IN        PTR      tvm.example.lan.
-
-;PTR Record IP address to HostName
-100     IN        PTR      www.example.lan.
-100     IN        PTR      mail.example.lan.
-EOF
-```
-
-```bash
-systemctl enable --now named
-```
-
-<details>
-<summary>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</summary>
-<p>
-
-```
-...
-PEERDNS="no"
-...
-```
-
-</p>
-</details>
 
 <details>
 <summary>vi /etc/NetworkManager/NetworkManager.conf</summary>
@@ -154,6 +38,20 @@ dns=none
 </p>
 </details>
 
+<details>
+<summary>vi /etc/sysconfig/network-scripts/ifcfg-enp0s3</summary>
+<p>
+
+```
+...
+PEERDNS="no"
+DNS1="8.8.8.8"
+...
+```
+
+</p>
+</details>
+
 ```bash
 reboot
 ```
@@ -164,24 +62,13 @@ reboot
 
 ```
 ...
-nameserver 192.168.0.100
+search nip.io
+nameserver 8.8.8.8
 ...
 ```
 
 </p>
 </details>
-
-```bash
-dig tvm.example.lan.
-dig -x 192.168.0.100
-```
-
-```bash
-ping tvm
-ping 192.168.0.100
-ping tvm.example.lan
-ping www.example.lan
-```
 
 ```bash
 yum install -y centos-release-openshift-origin
@@ -231,7 +118,7 @@ firewall-cmd --reload
 ```
 
 ```bash
-oc cluster up --public-hostname=www.example.lan --routing-suffix=example.lan
+oc cluster up --public-hostname=nombrededominio.nip.io --routing-suffix=nombrededominio.nip.io
 oc cluster down
 ```
 
@@ -241,7 +128,7 @@ oc cluster down
 
 ```
 ...
-server: https://www.example.lan:8443
+server: https://nombrededominio.nip.io:8443
 ...
 ```
 
@@ -254,7 +141,7 @@ server: https://www.example.lan:8443
 
 ```
 ...
-server: https://www.example.lan:8443
+server: https://nombrededominio.nip.io:8443
 ...
 ```
 
@@ -262,6 +149,6 @@ server: https://www.example.lan:8443
 </details>
 
 ```bash
-oc cluster up --public-hostname=www.example.lan --routing-suffix=example.lan
+oc cluster up --public-hostname=nombrededominio.nip.io --routing-suffix=nombrededominio.nip.io
 oc status
 ```
