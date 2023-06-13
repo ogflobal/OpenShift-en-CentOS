@@ -146,7 +146,12 @@ name: 127-0-0-1:8443
 
 ```
 ...
+apiVersion: v1
+clusters:
+- cluster:
+...
 server: https://192.168.0.100.nip.io:8443
+name: 127-0-0-1:8443
 ...
 ```
 
