@@ -46,6 +46,7 @@ dns=none
 ...
 PEERDNS="no"
 DNS1="8.8.8.8"
+IPV6_PRIVACY="no"
 ...
 ```
 
