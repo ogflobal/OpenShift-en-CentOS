@@ -5,21 +5,21 @@ Para este ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), l
 
 Preparamos una máquina virtual similar como la que se muestra en imagen.
 
-![image](https://github.com/ogflobal/OpenShift-Origin-v3.11.0-quickstart-on-Centos-7-locally/assets/74718043/5b0e990c-5989-4329-bbe7-3ff0acff686b)
+![image](https://github.com/ogflobal/My-OpenShift-Origin-v3.11.0-on-Centos-7-locally/assets/74718043/2d327cf1-77a4-41d3-9b03-e8abfa644121)
 
 ### Shell
 
 Ejecutamos o editamos según corresponda.
 
 ```bash
-hostnamectl set-hostname nombredeequipo.nombrededominio.nip.io
+hostnamectl set-hostname test.192.168.0.100.nip.io
 ```
 
 ```bash
 cat > /etc/hosts << "EOF"
 127.0.0.1   localhost 
 ::1         localhost
-192.168.0.100   nombredeequipo.nombrededominio.nip.io
+192.168.0.100   test.192.168.0.100.nip.io
 EOF
 ```
 
@@ -83,7 +83,6 @@ sed -i '/OPTIONS=.*/c\OPTIONS="--selinux-enabled --insecure-registry 172.30.0.0/
 ```bash
 systemctl enable docker
 systemctl start docker
-systemctl is-active docker
 ```
 
 <details>
@@ -92,6 +91,7 @@ systemctl is-active docker
 
 ```
 ...
+[registries.insecure]
 registries = ['172.30.0.0/16']
 ...
 ```
@@ -105,6 +105,7 @@ systemctl restart docker
 ```
 
 ```bash
+systemctl is-active docker
 docker network inspect -f "{{range .IPAM.Config }}{{ .Subnet }}{{end}}" bridge
 ```
 
@@ -118,7 +119,7 @@ firewall-cmd --reload
 ```
 
 ```bash
-oc cluster up --public-hostname=nombrededominio.nip.io --routing-suffix=nombrededominio.nip.io
+oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.100.nip.io
 oc cluster down
 ```
 
@@ -127,8 +128,12 @@ oc cluster down
 <p>
 
 ```
+apiVersion: v1
+clusters:
+- cluster:
 ...
-server: https://nombrededominio.nip.io:8443
+server: https://192.168.0.100.nip.io:8443
+name: 127-0-0-1:8443
 ...
 ```
 
@@ -141,7 +146,7 @@ server: https://nombrededominio.nip.io:8443
 
 ```
 ...
-server: https://nombrededominio.nip.io:8443
+server: https://192.168.0.100.nip.io:8443
 ...
 ```
 
@@ -149,6 +154,6 @@ server: https://nombrededominio.nip.io:8443
 </details>
 
 ```bash
-oc cluster up --public-hostname=nombrededominio.nip.io --routing-suffix=nombrededominio.nip.io
+oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.100.nip.io
 oc status
 ```
