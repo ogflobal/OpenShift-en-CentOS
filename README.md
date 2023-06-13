@@ -1,20 +1,9 @@
 # Inicio rápido de OpenShift Origin v3.11.0 en Centos 7 localmente
-Para el ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), que es la implementación de código abierto de Red Hat conocida así hasta agosto de 2018. Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd), el cual ahora es considerado como un upstream. Descarguemos e instalemos [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) y empecemos.
-
-![Screenshot](https://github.com/ogflobal/OpenShift-Origin-v3.11.0-local-quickstart/assets/74718043/5b55a175-d72e-4819-9dec-dbd1ccb2c95e)
+Para este ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), la implementación de código abierto de Red Hat. Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd) y ahora se considera un upstream. A continuación, procederemos a descargar e instalar [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) para comenzar.
 
 ### VirtualBox
 
-```
--------------------+-------------------
-enp0s3             |      192.168.0.100
-+------------------+------------------+
-|           [tvm.example.lan]        |
-|         Test  Virtual Machine       |
-|    Conectado a: Adaptador puente    |
-|RAM 16384 MB · CPU 2 · SATA 100.00 GB|
-+-------------------------------------+
-```
+![image](https://github.com/ogflobal/OpenShift-Origin-v3.11.0-quickstart-on-Centos-7-locally/assets/74718043/5b0e990c-5989-4329-bbe7-3ff0acff686b)
 
 ### Shell
 
