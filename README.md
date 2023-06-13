@@ -3,13 +3,13 @@ Para este ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), l
 
 ### VirtualBox
 
-Preparar una máquina virtual como la que muestro en imagen.
+Preparamos una máquina virtual como la que se muestra en imagen.
 
 ![image](https://github.com/ogflobal/OpenShift-Origin-v3.11.0-quickstart-on-Centos-7-locally/assets/74718043/5b0e990c-5989-4329-bbe7-3ff0acff686b)
 
 ### Shell
 
-Ejecuta o edita según corresponda.
+Ejecutamos o editamos según corresponda.
 
 ```bash
 hostnamectl set-hostname tvm.example.lan
