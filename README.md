@@ -65,7 +65,6 @@ reboot
 ...
 search nip.io
 nameserver 8.8.8.8
-...
 ```
 
 </p>
