@@ -1,11 +1,15 @@
 # Mi OpenShift Origin v3.11.0 en Centos 7 localmente
 Para este ejemplo, utilizaremos [Origin](https://github.com/openshift/origin), la implementación de código abierto de Red Hat. Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd) y ahora se considera un upstream. A continuación, procederemos a descargar e instalar [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) para comenzar.
 
-### En el VirtualBox
+### VirtualBox
+
+Preparar una máquina virtual como la que muestro en imagen.
 
 ![image](https://github.com/ogflobal/OpenShift-Origin-v3.11.0-quickstart-on-Centos-7-locally/assets/74718043/5b0e990c-5989-4329-bbe7-3ff0acff686b)
 
-### En la Shell
+### Shell
+
+Ejecuta o edita según corresponda.
 
 ```bash
 hostnamectl set-hostname tvm.example.lan
