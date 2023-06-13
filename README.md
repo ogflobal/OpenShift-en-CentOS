@@ -44,10 +44,10 @@ dns=none
 
 ```
 ...
+GATEWAY="192.168.0.1"
 PEERDNS="no"
 DNS1="8.8.8.8"
 IPV6_PRIVACY="no"
-...
 ```
 
 </p>
