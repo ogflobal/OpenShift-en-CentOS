@@ -159,5 +159,4 @@ name: 127-0-0-1:8443
 
 ```bash
 oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.100.nip.io
-oc status
 ```
