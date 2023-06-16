@@ -193,3 +193,10 @@ oc get pods -o wide
 
 oc get namespaces
 ```
+
+### Problemas y solución
+Problema 01: Reading docker config from /root/.docker/config.json failed: open /root/.docker/config.json: no such file or directory, will attempt to pull image docker.io/openshift/origin-control-plane:v3.11 anonymously
+error: error pulling Docker image openshift/origin-control-plane:v3.11
+
+Solución 01: docker login --username=tu_usuario_(https://hub.docker.com/)
+
