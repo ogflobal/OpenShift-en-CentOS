@@ -71,6 +71,10 @@ nameserver 8.8.8.8
 </details>
 
 ```bash
+reboot
+```
+
+```bash
 yum install -y centos-release-openshift-origin
 yum install -y wget git net-tools bind-utils iptables-services bridge-utils bash-completion origin-clients 
 yum install -y docker
