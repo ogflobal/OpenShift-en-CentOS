@@ -164,3 +164,32 @@ name: 127-0-0-1:8443
 ```bash
 oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.100.nip.io
 ```
+
+### Ejemplos
+```bash
+oc login
+
+oc new-project proyecto-de-ejemplo --display-name="Proyecto de ejemplo" --description="Servidores web"
+
+oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex --name=nginx 
+
+oc expose service nginx
+
+oc get svc
+
+oc login -u system:admin -n proyecto-de-ejemplo
+
+oadm policy add-cluster-role-to-user cluster-admin test
+
+oc login
+
+oc get namespaces
+
+oc get pods --all-namespaces
+
+oc get pods --all-namespaces | grep ngin
+
+oc get pods -o wide
+
+oc get namespaces
+```
