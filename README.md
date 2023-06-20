@@ -1,7 +1,7 @@
 # Cómo instalar y configurar OpenShift Origin v3.11.0 en un servidor CentOS 7 localmente
 Utilizaremos [Origin](https://github.com/openshift/origin), la implementación de código abierto de Red Hat. Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd) y ahora se considera un upstream.
 
-A continuación, procederemos a descargar e instalar [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) para comenzar.
+A continuación, procederemos a descargar [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) para comenzar.
 
 ### VirtualBox
 
