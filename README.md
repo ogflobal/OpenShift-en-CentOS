@@ -17,7 +17,7 @@ hostnamectl set-hostname test.192.168.0.100.nip.io
 
 ```bash
 cat > /etc/hosts << "EOF"
-127.0.0.1   localhost 
+127.0.0.1   localhost
 ::1         localhost
 192.168.0.100   test.192.168.0.100.nip.io
 EOF
@@ -76,7 +76,13 @@ reboot
 
 ```bash
 yum install -y centos-release-openshift-origin
-yum install -y wget git net-tools bind-utils iptables-services bridge-utils bash-completion origin-clients 
+```
+
+```bash
+yum install -y wget git net-tools bind-utils iptables-services bridge-utils bash-completion origin-clients
+```
+
+```bash
 yum install -y docker
 ```
 
@@ -86,6 +92,9 @@ sed -i '/OPTIONS=.*/c\OPTIONS="--selinux-enabled --insecure-registry 172.30.0.0/
 
 ```bash
 systemctl enable docker
+```
+
+```bash
 systemctl start docker
 ```
 
@@ -105,25 +114,50 @@ registries = ['172.30.0.0/16']
 
 ```bash
 systemctl daemon-reload
+```
+
+```bash
 systemctl restart docker
 ```
 
 ```bash
 systemctl is-active docker
+```
+
+```bash
 docker network inspect -f "{{range .IPAM.Config }}{{ .Subnet }}{{end}}" bridge
 ```
 
 ```bash
 firewall-cmd --permanent --new-zone dockerc
+
+```
+
+```bash
 firewall-cmd --permanent --zone dockerc --add-source 172.17.0.0/16
+```
+
+```bash
 firewall-cmd --permanent --zone dockerc --add-port 8443/tcp
+```
+
+```bash
 firewall-cmd --permanent --zone dockerc --add-port 53/udp
+```
+
+```bash
 firewall-cmd --permanent --zone dockerc --add-port 8053/udp
+```
+
+```bash
 firewall-cmd --reload
 ```
 
 ```bash
 oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.100.nip.io
+```
+
+```bash
 oc cluster down
 ```
 
