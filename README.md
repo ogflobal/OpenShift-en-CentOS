@@ -205,6 +205,7 @@ oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.
 ```bash
 oc login
 
+Authentication required for https://127.0.0.1:8443 (openshift)
 Username: test
 Password:
 
