@@ -211,23 +211,23 @@ oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex --name=ng
 
 oc expose service nginx
 
-oc get svc
-
 oc login -u system:admin -n proyecto-de-ejemplo
 
-oadm policy add-cluster-role-to-user cluster-admin test
+oc adm policy add-cluster-role-to-user cluster-admin test
 
 oc login
-
-oc get namespaces
-
-oc get pods --all-namespaces
 
 oc get pods --all-namespaces | grep nginx
 
 oc get pods -o wide
 
 oc get namespaces
+
+oc get pods --all-namespaces
+
+oc get namespaces
+
+oc get svc
 ```
 
 ### Problemas y solución
