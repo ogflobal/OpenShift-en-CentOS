@@ -223,7 +223,7 @@ oc get namespaces
 
 oc get pods --all-namespaces
 
-oc get pods --all-namespaces | grep ngin
+oc get pods --all-namespaces | grep nginx
 
 oc get pods -o wide
 
