@@ -205,7 +205,7 @@ oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.
 ```bash
 oc login
 
-Username: admin
+Username: test
 Password:
 
 oc new-project proyecto-de-ejemplo --display-name="Proyecto de ejemplo" --description="Servidores web"
