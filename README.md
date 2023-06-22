@@ -205,19 +205,28 @@ oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.
 ```bash
 oc login
 
+Username: admin
+Password:
+
 oc new-project proyecto-de-ejemplo --display-name="Proyecto de ejemplo" --description="Servidores web"
 
-oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex --name=nginx 
-
-oc expose service nginx
+oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex --name=nginx
 
 oc login -u system:admin -n proyecto-de-ejemplo
 
-oc adm policy add-cluster-role-to-user cluster-admin test
+oc adm policy add-cluster-role-to-user cluster-admin admin
+
+oc get pods --all-namespaces | grep nginx
+
+oc expose service nginx
+
+
+
+
 
 oc login
 
-oc get pods --all-namespaces | grep nginx
+
 
 oc get pods -o wide
 
