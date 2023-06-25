@@ -158,3 +158,5 @@ firewall-cmd --reload
 ```bash
 oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.100.nip.io
 ```
+
+[![Video](https://img.youtube.com/vi/Eg76cDK3Nhc/maxresdefault.jpg)](https://www.youtube.com/watch?v=Eg76cDK3Nhc)
