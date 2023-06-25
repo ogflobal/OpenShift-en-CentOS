@@ -204,6 +204,11 @@ oc cluster up --public-hostname=192.168.0.100.nip.io --routing-suffix=192.168.0.
 ### Ejemplos
 ```bash
 oc login
+oc new-project proyecto-de-ejemplo --display-name="Proyecto de ejemplo" --description="Multiples servidores web"
+oc new-app centos/nginx-112-centos7~https://github.com/sclorg/nginx-ex --name=nginx
+
+
+oc login
 
 Authentication required for https://127.0.0.1:8443 (openshift)
 Username: test
