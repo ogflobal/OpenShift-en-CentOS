@@ -1,5 +1,5 @@
 # Instale y configure OpenShift Origin v3.11.0 en un servidor CentOS 7 localmente
-Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd) y ahora se considera un upstream.
+Es importante mencionar que el nombre del proyecto ha cambiado a [OKD](https://github.com/okd-project/okd).
 
 A continuación, procederemos a descargar [CentOS](https://archive.org/download/cent-os-7-dvd-x8664/CentOS-7-x86_64-DVD-2009.iso) para comenzar.
 
